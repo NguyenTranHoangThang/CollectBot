@@ -22,55 +22,55 @@ class TestController extends AbstractController
      */
     public function index()
     {
-//        $host = 'docker.for.win.localhost:8888';
-//
-//        $capabilities = DesiredCapabilities::chrome();
-//
-//        $driver = RemoteWebDriver::create($host, $capabilities);
-//        $driver->get('https://frenchies.zenoti.com/SignIn.aspx');
-//        $driver
-//            ->findElement(WebDriverBy::name('txtUserName'))
-//            ->sendKeys('access@ceterus.com');
-//        $driver->findElement(WebDriverBy::name('txtPassword'))
-//            ->sendKeys('Porter16!')
-//            ->submit();
-//        $driver->wait()->until(
-//            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="accordion"]/li[1]/div'))
-//        );
-//        $btnReport = $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="accordion"]/li[1]/div')
-//        )->click();
-//        $tagAccount = $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="MainContent_HyperLink9"]')
-//        )->click();
-//        $driver->wait()->until(
-//            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType"]/table/tbody/tr/td[1]'))
-//        );
-//        $selectReport = $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType"]/table/tbody/tr/td[1]')
-//        )->click();
-//        $driver->wait()->until(
-//            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType_DropDown"]/div/ul/li[16]'))
-//        );
-//        $driver->findElement(
-//            WebDriverBy::xpath('//*[text()=\'Register Summary\']')
-//        )->click();
-//        $selectTimePeriod = $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="MainContent_PageContent_txtTimePeriod"]')
-//        )->click();
-//        $driver->findElement(
-////            WebDriverBy::cssSelector('li[data-range-key="Today"]')
-//            WebDriverBy::xpath('/html/body/div[3]/div[1]/ul/li[text()=\'Today\']')
-//        )->click();
-//        $btnRefresh = $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="MainContent_PageContent_refreshbtn"]')
-//        )->click();
-//        $driver->wait()->until(
-//            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="idExportSummary"]'))
-//        );
-//        $driver->findElement(
-//            WebDriverBy::xpath('//*[@id="idExportSummary"]')
-//        )->click();
+        $host = 'docker.for.win.localhost:8888';
+
+        $capabilities = DesiredCapabilities::chrome();
+
+        $driver = RemoteWebDriver::create($host, $capabilities);
+        $driver->get('https://frenchies.zenoti.com/SignIn.aspx');
+        $driver
+            ->findElement(WebDriverBy::name('txtUserName'))
+            ->sendKeys('access@ceterus.com');
+        $driver->findElement(WebDriverBy::name('txtPassword'))
+            ->sendKeys('Porter16!')
+            ->submit();
+        $driver->wait()->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="accordion"]/li[1]/div'))
+        );
+        $btnReport = $driver->findElement(
+            WebDriverBy::xpath('//*[@id="accordion"]/li[1]/div')
+        )->click();
+        $tagAccount = $driver->findElement(
+            WebDriverBy::xpath('//*[@id="MainContent_HyperLink9"]')
+        )->click();
+        $driver->wait()->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType"]/table/tbody/tr/td[1]'))
+        );
+        $selectReport = $driver->findElement(
+            WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType"]/table/tbody/tr/td[1]')
+        )->click();
+        $driver->wait()->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="ctl00_ctl00_MainContent_PageContent_ddlReportType_DropDown"]/div/ul/li[16]'))
+        );
+        $driver->findElement(
+            WebDriverBy::xpath('//*[text()=\'Register Summary\']')
+        )->click();
+        $selectTimePeriod = $driver->findElement(
+            WebDriverBy::xpath('//*[@id="MainContent_PageContent_txtTimePeriod"]')
+        )->click();
+        $driver->findElement(
+//            WebDriverBy::cssSelector('li[data-range-key="Today"]')
+            WebDriverBy::xpath('/html/body/div[3]/div[1]/ul/li[text()=\'Today\']')
+        )->click();
+        $btnRefresh = $driver->findElement(
+            WebDriverBy::xpath('//*[@id="MainContent_PageContent_refreshbtn"]')
+        )->click();
+        $driver->wait()->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//*[@id="idExportSummary"]'))
+        );
+        $driver->findElement(
+            WebDriverBy::xpath('//*[@id="idExportSummary"]')
+        )->click();
 
         $data = $this->extractData();
 //        dd($data);
