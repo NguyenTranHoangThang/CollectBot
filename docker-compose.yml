@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "8888:8888"
+    networks:
+      - backend
+  php:
+    build: './docker/php'
+    networks:
+      - backend
+    volumes:
+      - './:/var/www/html:delegated'
+
+  apache:
+    build: './docker/apache'
+    networks:
+      - backend
+      - frontend
+    ports:
+      - '81:80'
+    volumes:
+      - './:/var/www/html:delegated'
+    depends_on:
+      - php
+      - mysql
+
+  mysql:
+    build: './docker/mysql'
+    ports:
+      - '3306:3306'
+    networks:
+      - 'backend'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'bot'
+      MYSQL_PASSWORD: 'bot'
+      MYSQL_DATABASE: 'bot'
+
+networks:
+  backend:
+  frontend:

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <script src="{{ asset("js/three.min.js") }}"></script>
+    <script src="{{ asset("js/GLTFLoader.js") }}"></script>
+    <script src="{{ asset("js/DRACOLoader.js") }}"></script>
+
+    <script>
+        var loader = new THREE.GLTFLoader();
+
+        // Optional: Provide a DRACOLoader instance to decode compressed mesh data
+        var dracoLoader = new THREE.DRACOLoader();
+        dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
+        loader.setDRACOLoader( dracoLoader );
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 100000 );
+
+        var renderer = new THREE.WebGLRenderer({antialias : true });
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        var cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+        var light = new THREE.PointLight( 0xffffcc, 20, 200 );
+        light.position.set( 4, 30, -20 );
+        scene.add( light );
+
+        var light2 = new THREE.AmbientLight( 0x20202A, 20, 100 );
+        light2.position.set( 30, -10, 30 );
+        scene.add( light2 );
+
+        var shirt;
+        loader.load(
+            'models/scene.gltf',
+            function ( gltf ) {
+                shirt = gltf.scene;
+                // var a = new THREE.Mesh( shirt, material );
+                scene.add( shirt );
+                // scene.add( shirt );
+
+            },
+            // called while loading is progressing
+            function ( xhr ) {
+
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+            },
+            // called when loading has errors
+            function ( error ) {
+
+                console.log( 'An error happened' );
+
+            }
+        );
+
+
+        camera.position.z = 10;
+
+        var animate = function () {
+            requestAnimationFrame( animate );
+            shirt.rotation.y += 0.01;
+            renderer.render( scene, camera );
+        };
+
+        animate();
+    </script>
+</div>
+{% endblock %}
