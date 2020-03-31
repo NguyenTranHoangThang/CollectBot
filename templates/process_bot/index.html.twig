@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Process{% endblock %}
+
+{% block body %}
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Debit</th>
+            <th>Credit</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        {% for key,account in data %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ account.amount }}</td>
+                {% if account.debit == true %}
+                    <td>{{ account.amount }}</td>
+                    <td></td>
+                {% elseif account.credit  == true %}
+                    <td></td>
+                    <td>{{ account.amount }}</td>
+                {% else %}
+                    <td colspan="2"></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

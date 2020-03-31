@@ -5,8 +5,11 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
+        "ext-mysqli": "*",
         "php-webdriver/webdriver": "1.8.2",
         "phpoffice/phpexcel": "^1.8",
+        "phpoffice/phpspreadsheet": "^1.11",
         "sensio/framework-extra-bundle": "^5.5",
         "shuchkin/simplexls": "^0.9.5",
         "shuchkin/simplexlsx": "^0.8.13",
@@ -31,9 +34,7 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
-        "symfony/yaml": "5.0.*",
-      "ext-json": "*",
-      "ext-mysqli": "*"
+        "symfony/yaml": "5.0.*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

@@ -1,2 +1,4 @@
 /symfony2.xml
 /workspace.xml
+*.iml
+/php.xml
