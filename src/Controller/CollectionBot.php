@@ -28,13 +28,13 @@ class CollectionBot extends AbstractController
      */
     public function collect()
     {
-//        $capabilities = DesiredCapabilities::chrome();
-//        $driver = RemoteWebDriver::create(self::HOST, $capabilities);
-//        $this->login($driver);
-//        $this->navigateReportPage($driver);
-//        $this->selectReportType($driver);
-//        $this->downloadReport($driver);
-//
+        $capabilities = DesiredCapabilities::chrome();
+        $driver = RemoteWebDriver::create(self::HOST, $capabilities);
+        $this->login($driver);
+        $this->navigateReportPage($driver);
+        $this->selectReportType($driver);
+        $this->downloadReport($driver);
+
         $data = $this->extractData();
         $this->storeInDBbySql($data);
         return new Response('done');
@@ -103,18 +103,13 @@ class CollectionBot extends AbstractController
     public function extractData()
     {
         $objPHPExcel = PHPExcel_IOFactory::createReaderForFile("RegisterSummary.xls");
-        $report = @$objPHPExcel->load('RegisterSummary.xls')->getActiveSheet();
-
-        //allCells
-        $data = [];
-        foreach ($report->getCellCollection() as $cellNumber){
-            $data[$cellNumber] = $report->getCell($cellNumber)->getValue();
+        $report = @$objPHPExcel->load('RegisterSummary.xls');
+        $worksheetArrayData = [];
+        $allSheets = $report->getAllSheets();
+        foreach ($allSheets as $sheet) {
+            $worksheetArrayData[$sheet->getTitle()] = $sheet->toArray(null, true, false, false);
         }
-//        dd($data);
-        //allCells
-
-
-        return $data;
+        return $worksheetArrayData;
     }
 
     public function storeInDB($data)
@@ -131,8 +126,8 @@ class CollectionBot extends AbstractController
     public function storeInDBbySql($data)
     {
         $conn = $this->getDoctrine()->getManager()->getConnection();
-        $data = json_encode($data );
-        $data = str_replace('\\n','\\\n',$data);
+        $data = json_encode($data);
+        $data = str_replace('\\n', '\\\n', $data);
         $today = date('Y-m-d');
         $sql = "
         INSERT INTO report (content,date) VALUES ('$data','$today')

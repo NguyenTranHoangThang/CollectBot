@@ -1,0 +1,7 @@
+{
+  "searchPattern": "/@@@Total Cash \\/ Check \\/ CC/",
+  "occur": 1,
+  "descriptionColumn": 3,
+  "valueColumn": 4,
+  "type": "none"
+}

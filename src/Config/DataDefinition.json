@@ -1,0 +1,66 @@
+[
+  {
+    "searchPattern": "/Products @Sales@ /",
+    "occur": 1,
+    "descriptionColumn": 0,
+    "valueColumn": 2,
+    "type": "credit"
+  },
+
+  {
+    "searchPattern": "/@@Cash @@/",
+    "occur": 1,
+    "descriptionColumn": 2,
+    "valueColumn": 4,
+    "type": "debit"
+  },
+  {
+    "searchPattern": "/Taxes @.*Tax.*@/",
+    "occur": 1,
+    "descriptionColumn": 1,
+    "valueColumn": 2,
+    "type": "credit"
+  },
+  {
+    "searchPattern": "/@@Check @@/",
+    "occur": 1,
+    "descriptionColumn": 2,
+    "valueColumn": 4,
+    "type": "debit"
+  },
+  {
+    "searchPattern": "/Gratuity @Total@/",
+    "occur": 1,
+    "descriptionColumn": 0,
+    "valueColumn": 2,
+    "type": "credit"
+  },
+  {
+    "searchPattern": "/Support Staff Gratuity @Total@/",
+    "occur": 1,
+    "descriptionColumn": 0,
+    "valueColumn": 2,
+    "type": "credit"
+  },
+  {
+    "searchPattern": "/Cashback @/",
+    "occur": 1,
+    "descriptionColumn": 0,
+    "valueColumn": 2,
+    "type": "credit"
+  },
+  {
+    "searchPattern": "/@@@Fees@/",
+    "occur": 1,
+    "descriptionColumn": 3,
+    "valueColumn": 4,
+    "type": "debit"
+  },
+  {
+    "searchPattern": "/@Gross@/",
+    "occur": 1,
+    "descriptionColumn": 3,
+    "valueColumn": 4,
+    "type": "debit"
+  }
+]

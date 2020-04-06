@@ -7,28 +7,34 @@
         <thead class="thead-dark">
         <tr>
             <th>Account</th>
-            <th>Amount</th>
             <th>Debit</th>
             <th>Credit</th>
         </tr>
 
         </thead>
         <tbody>
-        {% for key,account in data %}
-            <tr>
-                <td>{{ key }}</td>
-                <td>{{ account.amount }}</td>
-                {% if account.debit == true %}
-                    <td>{{ account.amount }}</td>
-                    <td></td>
-                {% elseif account.credit  == true %}
-                    <td></td>
-                    <td>{{ account.amount }}</td>
-                {% else %}
-                    <td colspan="2"></td>
-                {% endif %}
-            </tr>
+        <tr>
+            <td class="bg-primary text-white">Date : {{ data[2] }}</td>
+            <td class="bg-success text-white">{{ data[1] }}</td>
+            <td class="bg-success text-white">{{ data[1] }}</td>
+        </tr>
+        {% for account in data[0] %}
+            {% if (account['value']) != 0 %}
+                <tr>
+                    <td>{{ account['account'] }}</td>
+                    {% if account['type'] == "debit" %}
+                        <td>{{ account['value'] }}</td>
+                        <td></td>
+                    {% elseif account['type']  == "credit" %}
+                        <td></td>
+                        <td>{{ account['value'] }}</td>
+                    {% else %}
+                        <td colspan="2"></td>
+                    {% endif %}
+                </tr>
+            {% endif %}
         {% endfor %}
+
         </tbody>
     </table>
 {% endblock %}

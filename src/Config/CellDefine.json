@@ -1,0 +1,51 @@
+[
+
+  {
+    "accountCell" : "C31",
+    "amountCell" : "E31",
+    "debit" : true,
+    "credit" : false
+  },
+  {
+    "accountCell" : "C37",
+    "amountCell" : "E37",
+    "debit" : true,
+    "credit" : false
+  },
+  {
+    "accountCell" : "A7",
+    "amountCell" : "C7",
+    "debit" : false,
+    "credit" : true
+  },
+  {
+    "accountCell" : "A67",
+    "amountCell" : "C67",
+    "debit" : false,
+    "credit" : true
+  },
+  {
+    "accountCell" : "A70",
+    "amountCell" : "C70",
+    "debit" : false,
+    "credit" : true
+  },
+  {
+    "accountCell" : "A73",
+    "amountCell" : "C73",
+    "debit" : false,
+    "credit" : true
+  },
+  {
+    "accountCell" : "D99",
+    "amountCell" : "E99",
+    "debit" : true,
+    "credit" : false
+  },
+  {
+    "accountCell" : "D98",
+    "amountCell" : "E98",
+    "debit" : true,
+    "credit" : false
+  }
+]
